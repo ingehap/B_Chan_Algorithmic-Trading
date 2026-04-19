@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chan-trading"
+version = "0.15.0"
+description = "Chan-style algorithmic trading research scaffold (v14: Newey-West HAC-adjusted Sharpe, rolling Sharpe, information ratio, asymmetric bid-ask half-spread in the broker)."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "chan-trading contributors" }]
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scipy>=1.10",
+    "statsmodels>=0.14",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+chan_trading = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
